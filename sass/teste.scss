@@ -1,0 +1,12 @@
+$corpadrao: blue;
+$titulo: 24px;
+
+p{
+    color: $corpadrao;
+}
+h1{
+    font-size: $titulo;
+    color:$corpadrao;  
+}
+
+body{background-color: $corpadrao;}
