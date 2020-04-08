@@ -48,7 +48,8 @@ gulp.task('minify', () => {
 
 gulp.task('watch', function () {
   livereload.listen()
-  gulp.watch('./saas/**/*.scss', gulp.parallel(['sass']));
+  gulp.watch('./saas/**/*.scss', gulp.series('sass'));
+  gulp.watch('lib/*.js', gulp.series('compress'));
 });
 
 gulp.task('default', gulp.series("connect", "sass", "compress", "compressImg","minify", "watch"));
