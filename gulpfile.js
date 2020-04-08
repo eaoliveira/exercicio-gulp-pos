@@ -24,8 +24,10 @@ gulp.task('sass', function () {
 gulp.task('compress', function () {
   return gulp.src('lib/*.js').
     pipe(uglify()).
-    pipe(gulp.dest('dist')).
-    pipe(gulp.src('src/images/*'))
+    pipe(gulp.dest('dist'))
+});
+gulp.task('compressImg', function () {
+  return gulp.src('src/images/*')
     .pipe(imagemin())
     .pipe(gulp.dest('dist/images'))
 });
@@ -49,7 +51,7 @@ gulp.task('watch', function () {
   gulp.watch('./saas/**/*.scss', gulp.parallel(['sass']));
 });
 
-gulp.task('default', gulp.series("connect", "sass", "compress", "minify", "watch"));
+gulp.task('default', gulp.series("connect", "sass", "compress", "compressImg","minify", "watch"));
 
 
 
